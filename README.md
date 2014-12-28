@@ -2,11 +2,10 @@
 
 DirtyBoots drives/automates web browsing to mimic your browsing habits, so your network traffic and online activity can appear normal while away from keyboard / home.
 
-Online, many people focus on what they explicitly post, upload, or share.  This ignores privacy from a traffic and network perspective.  Gaps in browsing activity can indicate sleep patterns, habitual periods away from one's keyboard or home, and more.  DirtyBoots is a simple solution to import existing browsing history database files, and drive a real-time probability-based browsing sequence.  In addition to obscuring 'genuine' network traffic, third-party trackers will be flooded with excess requests, obscuring
+Online, many people focus on what they explicitly post, upload, or share.  This ignores privacy from a traffic and network perspective.  Gaps in browsing activity can indicate sleep patterns, habitual periods away from one's keyboard or home, and more.  DirtyBoots is a simple solution to import existing browsing history database files, and drive a real-time probability-based browsing sequence.  In addition to obscuring 'genuine' network traffic, third-party trackers will be flooded with excess requests, obscuring 'genuine' network traffic, third-party trackers will be flooded with excess requests, distorting your actual browsing patterns.
 
 ## Features
 
-* Statistical analysis w/ SciKit-Learn
 * Fuzzy/error-prone typing
 * Firefox, Chrome, and Internet Explorer support
 * Website filtering and exclusion with white/black lists
@@ -26,135 +25,122 @@ Online, many people focus on what they explicitly post, upload, or share.  This 
 
 ## Usage
 
+Getting started with DirtyBoots is simple and only requires a couple commands.  Initialize configuration and database, import browser databases if needed, and launch DirtyBoots.  Beow is a quick-start guide to get you up and running, followed by documentation on each command.
+
 ### Quick-Start
 
     # setup / install
     python setup.py install
 
-    # init database with default filename [history.sqlite]
-    dirtyboots.py init
-
     # create conf with defaults [boots.conf]
-    dirtyboots.py config
+    dirtyboots config
 
-    # import Firefox profile's browsing history
-    dirtyboots.py importdb /Path/To/Firefox/Profile/places.sqlite --browser firefox
+    # init database with default filename [history.sqlite]
+    dirtyboots initdb
 
-    # import Chrome profile's browsing history
-    dirtyboots.py importdb /Path/To/Chrome/Profile/History --browser chrome
+    # import a Firefox profile's browsing history
+    dirtyboots importdb /Path/To/Firefox/Profile/places.sqlite --browser firefox
+
+    # import a Chrome profile's browsing history
+    dirtyboots importdb /Path/To/Chrome/Profile/History --browser chrome
 
     # start browsing
-    dirtyboots.py run
+    dirtyboots run
+
+    # alternative run (from text file)
+    dirtyboots txt /Path/To/Text/File/of/Urls.txt
 
 The main commands are,
 
-    initsb   Creates database for browsing history and stats
-    clearsb  Clears existing browsing history database
-    importdb Imports a web browser's history
-    config   Create a default configuration file
-    run      Run the program
-    txt      Run the program from a newline-delimited text file of urls
+    run                         Run the program
+    txt                         Run the program from a newline-delimited text file of urls
+    initdb                      Creates database for browsing history and stats
+    cleardb                     Clears existing browsing history database
+    importdb                    Imports a web browser's history
+    config                      Create a default configuration file
 
 All commands support the following options
 
-    -h, --help                      Show this help message and exit
-    --log [LOG]                     Log file location, default to stdout
-    --level                         Logging level
-        [{debug,info,warning,error,critical}]
-
-    --no-ts                         Disable timestamps during logging
-    --log-mode                      Which mode to open log files with
-        [{w,a}]
-
-### InitDB
-
-Creates database for browsing history and stats
-
-    --location [LOCATION]           Location to create the database
-
-### ClearDB
-
-Clears existing browsing history database
-
-    --location [LOCATION]           Location to create the database
-
-### ImportDB
-
-Import database for browsing history and stats
-
-    dirtyboots.py importdb [database] [options]
-
-    database                        Browser database file (places.sqlite/History)
-    --browser [{firefox,chrome}]    Browser database type
-    --location [LOCATION]           Location to create the database
-
-### Config
-
-Create a default configuration file
-
-    --config [CONFIG]               Config file load (.conf)
+    -h, --help                  Show this help message and exit
+    --no-ts                     Disable timestamps during logging
+    --log       [LOG]           Log file location, default to stdout
+    --level     [LEVEL]         Logging level [{debug,info,warning,error,critical}]
+    --log-mode  [MODE]          Which mode to open log files with [{w,a}]
 
 ### Run
 
 Launch cruise-control for websites
 
-    --config [CONFIG]               Config file load (.conf)
-    --location [LOCATION]           Location to create the database
-    --https                         Skip not-HTTPS links
-    --browser [{firefox,chrome,ie}] Which browser to browse with
-    --start [START]                 Start time to begin browsing
-    --end [END]                     Time to finish browsing
-    --whitelist [WHITELIST]         File containing regex of websites to include
-    --blacklist [BLACKLIST]         File containing regex of websites to exclude
-    --drunk                         Enable drunk typing regardless of day/time
-    --selfies                       Capture a screenshot on every site and produce a video
-    --no-fuzz                       No fuzzy typing, no errors
-    --no-repeats                    Do not revisit any URLs during a browsing session
-    --skip-urls                     Skip all URLs (still bootstraps and runs stats)
+    --https                     Skip not-HTTPS links
+    --drunk                     Enable drunk typing regardless of day/time
+    --selfies                   Capture a screenshot on every site and produce a video
+    --no-fuzz                   No fuzzy typing, no errors
+    --no-repeats                Do not revisit any URLs during a browsing session
+    --skip-urls                 Skip all URLs (still bootstraps and runs stats)
+    --config    [CONFIG]        Config file load (.conf)
+    --location  [LOCATION]      Location to create the database
+    --browser   [BROWSER]       Which browser to browse with [{firefox,chrome,ie}]
+    --start     [START]         Start time to begin browsing
+    --end       [END]           Time to finish browsing
+    --whitelist [WHITELIST]     File containing regex of websites to include
+    --blacklist [BLACKLIST]     File containing regex of websites to exclude
 
 ### Txt
 
 Run the program from a newline-delimited text file of urls rather than a sqlite database.
 
+    txtFile                     Newline delimited text file of URLs
+    --https                     Skip not-HTTPS links
+    --drunk                     Enable drunk typing regardless of day/time
+    --selfies                   Capture a screenshot on every site and produce a video
+    --no-fuzz                   No fuzzy typing, no errors
+    --no-repeats                Do not revisit any URLs during a browsing session
+    --skip-urls                 Skip all URLs (still bootstraps and runs stats)
+    --config    [CONFIG]        Config file load (.conf)
+    --location  [LOCATION]      Location to create the database
+    --browser   [BROWSER]       Which browser to browse with [{firefox,chrome,ie}]
+    --start     [START]         Start time to begin browsing
+    --end       [END]           Time to finish browsing
+    --whitelist [WHITELIST]     File containing regex of websites to include
+    --blacklist [BLACKLIST]     File containing regex of websites to exclude
+
 Text-file mode has a required argument `txtfile` and has the same command line options as `run`
 
-## Help
+### InitDB
 
-### Locating Browser History Databases
+Creates database for browsing history and stats
 
-#### Firefox
+    dirtyboots initdb [OPTIONS]
 
-**Windows XP**
+    --location  [LOCATION]      Location to create the database
 
-`C:\Documents and Settings\<user>\Application Data\Mozilla\Firefox\Profiles\<profile.id>\places.sqlite`
+### ClearDB
 
-**Windows Vista/7**
+Clears existing browsing history database
 
-`C:\Users\<user>\AppData\Roaming\Mozilla\Firefox\Profiles\<profile.id>\places.sqlite`
+    dirtyboots cleardb [OPTIONS]
 
-**GNU/Linux**
+    --location  [LOCATION]      Location to create the database
 
-`/home/<user>/.mozilla/firefox/<profile folder>/places.sqlite`
+### ImportDB
 
-**Mac OS X**
+Import database for browsing history and stats
 
-`/Users/<user>/Library/Application Support/Firefox/Profiles/default.lov/places.sqlite`
+    dirtyboots importdb [DATABASE] [OPTIONS]
 
-#### Chrome
+    database                    Browser database file (ex: places.sqlite or History)
+    --browser   [BROWSER]       Browser database type [{firefox,chrome}]
+    --location  [LOCATION]      Location to create the database
 
-**Windows XP**
+### Config
 
-`C:\Users\<user>\AppData\Local\Google\Chrome\User Data\Default\History`
+Create a default configuration file
 
-`C:\Users\<user>\AppData\Roaming\Mozilla\Firefox\Profiles\<profile.id>\places.sqlite`
-`C:\Users\<user>\AppData\Local\Google\Chrome\User Data\Default\History`
+    --config    [CONFIG]        Config file load (.conf)
 
+## Website
 
-**Windows XP**
-
-**Windows Vista/7**
-
-`C:\Users\<user>\AppData\Local\Google\Chrome\User Data\Default\History`
+The official website is hosted at http://m-kal.com/dirtyboots.html
 
 
 ## License
