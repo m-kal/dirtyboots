@@ -17,27 +17,19 @@ Online, many people focus on what they explicitly post, upload, or share.  This 
 
 ## Dependencies
 
-* argparse
+* python 3
 * selenium
-* scikit-learn
-* pandas
+* ffmpeg
+* moviepy
+* pygame
+* argparse
 
 ## Usage
 
-    init     Creates database for browsing history and stats
-    clear    Clears existing browsing history database
-    importdb Imports a web browser's history
-    config   Create a default configuration file
-    run      Run the program
-
-All commands support the following options
-
-    -h, --help                      Show this help message and exit
-    --log [LOG]                     Log file location, default to stdout
-    --level [{debug,info,warning,error,critical}]
-                                    Logging level
-
 ### Quick-Start
+
+    # setup / install
+    python setup.py install
 
     # init database with default filename [history.sqlite]
     dirtyboots.py init
@@ -46,21 +38,41 @@ All commands support the following options
     dirtyboots.py config
 
     # import Firefox profile's browsing history
-    dirtyboots.py importdb --browser firefox --location /Path/To/Firefox/Profile/History.sqlite
+    dirtyboots.py importdb /Path/To/Firefox/Profile/places.sqlite --browser firefox
 
     # import Chrome profile's browsing history
-    dirtyboots.py importdb --browser chrome --location /Path/To/Chrome/Profile/History
+    dirtyboots.py importdb /Path/To/Chrome/Profile/History --browser chrome
 
     # start browsing
     dirtyboots.py run
 
-### Init
+The main commands are,
+
+    initsb   Creates database for browsing history and stats
+    clearsb  Clears existing browsing history database
+    importdb Imports a web browser's history
+    config   Create a default configuration file
+    run      Run the program
+    txt      Run the program from a newline-delimited text file of urls
+
+All commands support the following options
+
+    -h, --help                      Show this help message and exit
+    --log [LOG]                     Log file location, default to stdout
+    --level                         Logging level
+        [{debug,info,warning,error,critical}]
+
+    --no-ts                         Disable timestamps during logging
+    --log-mode                      Which mode to open log files with
+        [{w,a}]
+
+### InitDB
 
 Creates database for browsing history and stats
 
     --location [LOCATION]           Location to create the database
 
-### Clear
+### ClearDB
 
 Clears existing browsing history database
 
@@ -70,6 +82,9 @@ Clears existing browsing history database
 
 Import database for browsing history and stats
 
+    dirtyboots.py importdb [database] [options]
+
+    database                        Browser database file (places.sqlite/History)
     --browser [{firefox,chrome}]    Browser database type
     --location [LOCATION]           Location to create the database
 
@@ -92,8 +107,55 @@ Launch cruise-control for websites
     --whitelist [WHITELIST]         File containing regex of websites to include
     --blacklist [BLACKLIST]         File containing regex of websites to exclude
     --drunk                         Enable drunk typing regardless of day/time
+    --selfies                       Capture a screenshot on every site and produce a video
     --no-fuzz                       No fuzzy typing, no errors
+    --no-repeats                    Do not revisit any URLs during a browsing session
     --skip-urls                     Skip all URLs (still bootstraps and runs stats)
+
+### Txt
+
+Run the program from a newline-delimited text file of urls rather than a sqlite database.
+
+Text-file mode has a required argument `txtfile` and has the same command line options as `run`
+
+## Help
+
+### Locating Browser History Databases
+
+#### Firefox
+
+**Windows XP**
+
+`C:\Documents and Settings\<user>\Application Data\Mozilla\Firefox\Profiles\<profile.id>\places.sqlite`
+
+**Windows Vista/7**
+
+`C:\Users\<user>\AppData\Roaming\Mozilla\Firefox\Profiles\<profile.id>\places.sqlite`
+
+**GNU/Linux**
+
+`/home/<user>/.mozilla/firefox/<profile folder>/places.sqlite`
+
+**Mac OS X**
+
+`/Users/<user>/Library/Application Support/Firefox/Profiles/default.lov/places.sqlite`
+
+#### Chrome
+
+**Windows XP**
+
+`C:\Users\<user>\AppData\Local\Google\Chrome\User Data\Default\History`
+
+`C:\Users\<user>\AppData\Roaming\Mozilla\Firefox\Profiles\<profile.id>\places.sqlite`
+`C:\Users\<user>\AppData\Local\Google\Chrome\User Data\Default\History`
+
+
+**Windows XP**
+
+**Windows Vista/7**
+
+`C:\Users\<user>\AppData\Local\Google\Chrome\User Data\Default\History`
+
 
 ## License
 
