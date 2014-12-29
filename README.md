@@ -136,12 +136,13 @@ Import database for browsing history and stats
 
 Create a default configuration file
 
+    dirtyboots config [OPTIONS]
+
     --config    [CONFIG]        Config file load (.conf)
 
 ## Website
 
-The official website is hosted at http://m-kal.com/dirtyboots.html
-
+The official website is hosted at http://m-kal.com/dirtyboots
 
 ## License
 
