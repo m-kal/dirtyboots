@@ -56,6 +56,7 @@ initdb                      Creates database for browsing history and stats
 cleardb                     Clears existing browsing history database
 importdb                    Imports a web browser's history
 config                      Create a default configuration file
+</pre>
 
 All commands support the following options
 
