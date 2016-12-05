@@ -1,6 +1,8 @@
-# DirtyBoots
-
-### Web browser automation to obscure between genuine and fake browsing sessions
+---
+layout: default
+title: DirtyBoots
+description: Web browser automation to obscure between genuine and fake browsing sessions
+---
 
 DirtyBoots drives/automates web browsing to mimic your browsing habits, so your network traffic and online activity can appear normal while away from keyboard / home.
 
