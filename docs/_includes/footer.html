@@ -1,0 +1,25 @@
+<footer>
+    <p class="credits">
+        <code><span class="color-text">[</span><small>&copy; 2016</small><span class="color-text">]</span></code>
+    </p>
+</footer>
+<script type="text/javascript">
+    $(function()
+    {
+        // setup sticky nav to follow during scrolling
+        $( '.sticky-nav' ).waypoint( 'sticky' );
+
+        // link in navigation menu as well
+        $('#menu-nav, #menu-nav-mobile').onePageNav({
+            currentClass: 'current',
+            changeHash: false,
+            scrollSpeed: 750,
+            scrollOffset: 30,
+            scrollThreshold: 0.5,
+            easing: 'easeOutExpo',
+            filter: ':not(.external)'
+        });
+    });
+</script>
+</body>
+</html>

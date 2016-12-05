@@ -1,0 +1,22 @@
+{% include header.html %}
+<div class="page-alternate">
+    <div class="container">
+        <!-- Title Page -->
+        <div class="row">
+            <div class="span12">
+                <div class="title-page">
+                    <h2 class="title">{{ page.title }}</h2>
+                    <h3 class="title-description">{{ page.description }}</h3>
+                </div>
+            </div>
+        </div>
+        <!-- End Title Page -->
+
+        <div class="row">
+            <div class="col-lg-12">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</div>
+{% include footer.html %}

@@ -1,0 +1,209 @@
+a,
+.color-text,
+nav#menu #menu-nav li.current a,
+nav#menu #menu-nav li a:hover {
+  color: #DE5E60;
+}
+.code-txt,
+blockquote {
+  border-left-color: #DE5E60;
+}
+body {
+  color: #969696;
+}
+p {
+  margin-bottom: 10px;
+}
+blockquote {
+  padding: 15px 20px;
+  border-left: 2px solid #DE5E60;
+}
+header #logo a {
+  background: none;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 300;
+  display: inline;
+  text-transform: uppercase;
+}
+.page,
+.page-alternate {
+  text-align: left;
+}
+.title-page {
+  margin-bottom: 0px !important;
+}
+.list-no-bullet {
+  list-style: none;
+}
+.services-box .icon {
+  background-color: #DE5E60;
+}
+code,
+.code-txt {
+  /* reset backgrounds / borders /colors */
+  border: none;
+  background-color: #2F3238;
+  color: #ccc;
+  font-size: small !important;
+  line-height: normal !important;
+  /* white-space corrections */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
+  border-radius: 0 !important;
+}
+.light-text {
+  color: #FFFFFF;
+}
+dl dt {
+  color: #FFFFFF;
+  font-weight: 300;
+}
+.code-txt {
+  /* make sure we have a block-el */
+  display: block;
+  /* margins in and out of text */
+  margin: 0px;
+  padding: 10px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+  border-left: 2px solid #DE5E60;
+}
+/* highlight.js overide */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #2F3238;
+  -webkit-text-size-adjust: none;
+}
+.hljs,
+.hljs-tag,
+.css .hljs-rules,
+.css .hljs-value,
+.aspectj .hljs-function,
+.css .hljs-function .hljs-preprocessor,
+.hljs-pragma {
+  color: #f8f8f2;
+}
+.hljs-strongemphasis,
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+.hljs-bullet,
+.hljs-blockquote,
+.hljs-horizontal_rule,
+.hljs-number,
+.hljs-regexp,
+.alias .hljs-keyword,
+.hljs-literal,
+.hljs-hexcolor {
+  color: #ae81ff;
+}
+.hljs-tag .hljs-value,
+.hljs-code,
+.hljs-title,
+.css .hljs-class,
+.hljs-class .hljs-title:last-child {
+  color: #a6e22e;
+}
+.hljs-link_url {
+  font-size: 80%;
+}
+.hljs-strong,
+.hljs-strongemphasis {
+  font-weight: bold;
+}
+.hljs-emphasis,
+.hljs-strongemphasis,
+.hljs-class .hljs-title:last-child,
+.hljs-typename {
+  font-style: italic;
+}
+.hljs-keyword,
+.ruby .hljs-class .hljs-keyword:first-child,
+.ruby .hljs-function .hljs-keyword,
+.hljs-function,
+.hljs-change,
+.hljs-winutils,
+.hljs-flow,
+.nginx .hljs-title,
+.tex .hljs-special,
+.hljs-header,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-symbol .hljs-string,
+.hljs-tag .hljs-title,
+.hljs-value,
+.alias .hljs-keyword:first-child,
+.css .hljs-tag,
+.css .unit,
+.css .hljs-important {
+  color: #f92672;
+}
+.hljs-function .hljs-keyword,
+.hljs-class .hljs-keyword:first-child,
+.hljs-aspect .hljs-keyword:first-child,
+.hljs-constant,
+.hljs-typename,
+.css .hljs-attribute {
+  color: #66d9ef;
+}
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title,
+.hljs-aspect .hljs-title {
+  color: #f8f8f2;
+}
+.hljs-string,
+.css .hljs-id,
+.hljs-subst,
+.hljs-type,
+.ruby .hljs-class .hljs-parent,
+.hljs-built_in,
+.django .hljs-template_tag,
+.django .hljs-variable,
+.smalltalk .hljs-class,
+.django .hljs-filter .hljs-argument,
+.smalltalk .hljs-localvars,
+.smalltalk .hljs-array,
+.hljs-attr_selector,
+.hljs-pseudo,
+.hljs-addition,
+.hljs-stream,
+.hljs-envvar,
+.apache .hljs-tag,
+.apache .hljs-cbracket,
+.tex .hljs-command,
+.hljs-prompt,
+.hljs-link_label,
+.hljs-link_url {
+  color: #e6db74;
+}
+.hljs-comment,
+.hljs-javadoc,
+.hljs-annotation,
+.hljs-decorator,
+.hljs-pi,
+.hljs-doctype,
+.hljs-deletion,
+.hljs-shebang,
+.apache .hljs-sqbracket,
+.tex .hljs-formula {
+  color: #969696;
+}
+.coffeescript .javascript,
+.javascript .xml,
+.tex .hljs-formula,
+.xml .javascript,
+.xml .vbscript,
+.xml .css,
+.xml .hljs-cdata,
+.xml .php,
+.php .xml {
+  opacity: 0.5;
+}
